@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+
+ {% block title %}
+ Cadastro
+ {% endblock title %}
+
+ {% block estilos%}
+<link rel="stylesheet" type="text/css" href="static/css/style.css">
+  {% endblock estilos%}
+
+  {% block content %}
+  <div class="container">
+        <center>
+            <h1 class="titulo m-4 text-black" >Obrigado por entrar em contato conosco!</h1>
+        </center>
+            <a class="btn btn-primary m-4" href="{{ url_for('inicio') }}">Voltar ao Início</a>
+ </div>
+    {% endblock content %}
