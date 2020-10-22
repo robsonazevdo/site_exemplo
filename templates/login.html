@@ -1,28 +1,97 @@
-{% extends '_base.html' %}
+<!DOCTYPE html>
+<html lang="pt-br">
 
-{% block title %}
-Login
-{% endblock title %}
+<head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-{% block estilos %}
-<link rel="stylesheet" type="text/css" href="static/css/style.css">
-{% endblock estilos %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href=static/css/style.css ">
+    <title>login</title>
+    
+</head>
 
-{% block content%}
-<div class = "container">
-      <div class= "row">
-          <div class="col-12 col-md-6 coluna">
-          <img src="static/img/logo_hair.jpg" alt= "logo empresa"  height= "400">
-          </div>
-          <div class="col-12 col-md-6 coluna">
-            <form action="\login1" method="POST" class="text-center">
-                <h1 class="h3 text-white">Logar</h1>
-                <label for="id_email" class="sr-only">Email</label>
-                <input class="form-control m-2" type="text" id="id_email" placeholder="Insira um email" required autofocus name="email">
-                <label for="id_senha" class=sr-only>Senha</label>
-                <input class="form-control m-2" type="password" id="id_senha" placeholder="Insira a senha" required autofocus name="Senha">
-               <button type="submit" class="btn btn-primary">Fazer Login</button>
-            </form>
-         </div>
-      </div>
-{% endblock content%}
+<body>
+    <div class="container ">
+        <div class="content first-content ">
+            <div class="first-column ">
+                <h2 class="title ">Seja Bem Vindo!</h2>
+                <p class="descricao ">Para se manter conectado conosco</p>
+                <p class="descricao ">Por Favor, Faça seu login</p>
+                <button class="btn ">Entrar</button>
+            </div>
+            <div class="second-column ">
+                <h2 class="title ">Crie Sua conta</h2>
+                <div class="midia-social ">
+                    <ul class=" lista-social-midia ">
+                        <li>
+                            <a href="# ">Face</a>
+                        </li>
+                        <li>
+                            <a href="# ">google</a>
+                        </li>
+                        <li>
+                            <a href="# ">link</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- midia-social -->
+                <p class="descricao ">Ou Use seu Email:</p>
+                <form action="cadastro " class="form ">
+                    <input type="text " name="usuario " id="usuario " placeholder="Nome ">
+                    <input type="email " name="email " id="email " placeholder="Email ">
+                    <input type="password " name="senha " id="senha " placeholder="Senha ">
+                    <button class="btn ">Criar</button>
+                </form>
+            </div>
+            <!-- second column -->
+        </div>
+        <!-- fisrt content -->
+
+        <div class=" content second-content ">
+            <div class="first-column ">
+                <h2 class="title ">Olá</h2>
+                <p class="descricao ">Insira seus Dados</p>
+                <p class="descricao ">Para Iniciar</p>
+                <button class="btn ">Sair</button>
+            </div>
+            <div class="second-column ">
+                <h2 class="title ">Entre na sua Conta</h2>
+                <div class="midia-social ">
+                    <ul>
+                        <li>
+                            <a href="# ">Face</a>
+                        </li>
+                        <li>
+                            <a href="# ">google</a>
+                        </li>
+                        <li>
+                            <a href="# ">link</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- midia-social -->
+                <p class="descricao ">Use sua conta:</p>
+                <form action="cadastro " class="form ">
+                    <input type="email " name="email " id="email " placeholder="Email ">
+                    <input type="password " name="senha " id="senha " placeholder="Senha ">
+                    <a href=" " class=" ">Esqueceu Sua Senha?</a>
+                    <button class="btn ">Entrar</button>
+                </form>
+            </div>
+            <!-- secon column -->
+        </div>
+        <!-- second content -->
+
+    </div>
+
+    <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js " integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js " integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy " crossorigin="anonymous "></script>
+</body>
+
+</html>
