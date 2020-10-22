@@ -1,102 +1,58 @@
-// fazendo funcionar o relogio
-var r = document.getElementById('relogio');
+document.addEventListener('DOMContentLoaded', function() {
+    function GetDaysCalendar(mes, ano) {
+        const monthsBR = ['JANEIRO', 'FEVEREIRO', 'MARÇO', 'ABRIL', 'MAIO', 'JUNHO', 'JULHO', 'AGOSTO', 'SETEMBRO', 'OUTUBRO', 'NOVEMBRO', 'DEZEMBRO'];
+        document.getElementById('mes').innerHTML = monthsBR[mes];
+        document.getElementById('ano').innerHTML = ano;
+        const tableDays = document.getElementById('dias');
+        let month = mes;
+        let year = ano;
 
-function atualizaHora(){
-    var hoje = new Date();
-    var h = hoje.getHours();
-    var m = hoje.getMinutes();
-    var s = hoje.getSeconds();
-    if(h < 10)
-        h = '0' + h;
-    if(m < 10)
-        m = '0' + m;
-    if(s < 10)
-        s = '0' + s;
-    r.textContent = h + ":" + m + ":" + s;
-}
-
-setInterval(atualizaHora, 1000); // tempo em milisegundos
-// Crtl + Shift + R
+        let firtsDayOfWeek = new Date(year, month, 1).getDay() - 1;
+        let getLastDayThisMonth = new Date(year, month + 1, 0).getDate();
 
 
+        for (var i = -firtsDayOfWeek, index = 0; i < (42 - firtsDayOfWeek); i++, index++) {
+            let dt = new Date(year, month, i);
+            let atualDate = new Date();
+            var dayTable = tableDays.getElementsByTagName('td')[index];
+            dayTable.classList.remove('mes-anterior');
+            dayTable.classList.remove('proximo-mes');
+            dayTable.classList.remove('dia-atual');
+            dayTable.innerHTML = dt.getDate();
 
+            if (dt.getFullYear() == atualDate.getFullYear() && dt.getMonth() == atualDate.getMonth() && dt.getDate() == atualDate.getDate()) {
+                dayTable.classList.add("dia-atual");
+            }
+            if (i < 1) {
+                dayTable.classList.add("mes-anterior");
+            }
+            if (i > getLastDayThisMonth) {
+                dayTable.classList.add("proximo-mes");
+            }
+        }
+    }
+    var dt = new Date();
+    var month = dt.getMonth();
+    var year = dt.getFullYear();
+    GetDaysCalendar(month, year);
 
+    var botao_proximo = document.getElementById('btn_next');
+    var botao_anterior = document.getElementById('btn_prev');
+    botao_proximo.onclick = function() {
+        month++;
+        if (month > 11) {
+            month = 0;
+            year++;
+        }
 
-
-
-
-//////////////////////////////////
-
-const raiz = document.getElementById('lista');
-
-// var xhr = new XMLHttpRequest();
-// xhr.open('GET', 'http://juliovasquez.pythonanywhere.com/api/funcionarios');
-
-// xhr.onload = function(){
-//     var data = JSON.parse(xhr.response);
-//     data.funcionarios.forEach(element => {
-//         // criamos a linha da tabela
-//         var linha = document.createElement('tr');
-//         raiz.appendChild(linha);
-
-//         // criamos as colunas
-//         var funcionario = document.createElement('td');
-//         funcionario.textContent = element.nome_usuario;
-//         linha.appendChild(funcionario);
-
-//         var hora = document.createElement('td');
-//         hora.textContent = element.data;
-//         linha.appendChild(hora);
-//     });
-// }
-// xhr.onerror = {}
-
-// xhr.send();
-
-fetch('/funcionarios') // GET por default
-.then(res => {return res.json();})
-.then(data => {
-    data.funcionarios.forEach(element => {
-        // criamos a linha da tabela
-        var linha = document.createElement('tr');
-        raiz.appendChild(linha);
-
-        // criamos as colunas
-        var funcionario = document.createElement('td');
-        funcionario.textContent = element.nome_usuario;
-        linha.appendChild(funcionario);
-
-        var hora = document.createElement('td');
-        hora.textContent = element.hora;
-        linha.appendChild(hora);
-    });
-})
-.catch( err => {
-    console.log('Ocorreu um problema.');
-})
-.finally(() =>{
-    console.log('Linha que sempre aparece no final');
-})
-
-
-const app =document.getElementById('raiz')
-//app.textContent = "oiiiiii";
-
-const caixa = document.createElement('div');
-//caixa.textContent = "Foi criado dinamicamente";
-caixa.setAttribute('class','caixa');
-app.appendChild(caixa);
-
-for(var i = 1; i <= 10; i++){
-    var c = document.createElement('div');
-    c.setAttribute('class','artigos')
-    caixa.appendChild(c);
-
-    var t = document.createElement('h3');
-    t.textContent = 'Curso ' + i;
-    c.appendChild(t);
-
-    var p = document.createElement('p');
-    p.textContent = 'The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa.';
-    c.appendChild(p);
-}
+        GetDaysCalendar(month, year);
+    };
+    botao_anterior.onclick = function() {
+        month--;
+        if (month < 0) {
+            month = 11;
+            year--;
+        }
+        GetDaysCalendar(month, year);
+    };
+}, false);

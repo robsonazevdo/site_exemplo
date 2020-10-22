@@ -4,34 +4,136 @@
 Agenda
 {% endblock title %}
 
-{% block estilos %}
+{% block header%}
+ <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+  <a class="navbar-brand text-primary" href="{{ url_for('login1') }}"><img src="static/img/logo.png" alt= "logo empresa"  height= "30"id="logo"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link text-dark " href="{{ url_for('login1') }}">Início </a>
+      </li>
+     
+      <li class="nav-item active ">
+        <a class="nav-link text-dark " href="{{ url_for('cadastro') }}">Cadastro</a>
+      </li>
+    </ul>
+    <div class="form-inline my-2 my-lg-0">
+      <a class="btn btn-outline-dark" href="{{ url_for('agenda') }}" role="button">Agendar</a>
+    </div>
+  </div>
+</nav>
+
+    {% endblock header%}
+
+{% block estilos %}
+<link rel="stylesheet" type="text/css" href="static/css/style.css">
+<link rel="stylesheet" type="text/css" href="static/css/main.css">
 {% endblock estilos %}
 
+
+
 {% block content%}
+<center>
+   <img src="static/img/Logo-branco.png" alt= "logo empresa" height= "400">
+
+</center>
 
 
-
-<div class = "container">
-      <div class= "row">
-          <div class="col-6 col-md-6 coluna">
-            <div class=class="shadow-sm p-3 mb-5 bg-white rounded"><img src="static/img/logo_hair.jpg" alt= "logo empresa"  height= "400">
-            </div>
-                   </div>
-
-          <div class="col-6 col-md-6 coluna">
-            <form action="" method="POST" class="text-center">
-                <h1 class="h3 text-white">Agenda</h1>
-
-                <label for="id_data" class="sr-only">Data</label>
-                <input class="form-control m-2" type="date" id="id_data" placeholder="Escolha uma data" required autofocus name="email">
-               
-
-                <label for="id_horario" class=sr-only>Horário</label>
-                <input class="form-control m-2"  type="time" min="09:00" max="18:00" id="id_horario" placeholder="" required autofocus name=Hora>
-               <button type="submit" class="btn btn-primary">Agendar</button>
-            </form>
-         </div>
-      </div>
-      
 {% endblock content%}
+
+{% block scripts %}
+<script type="text/javascript" src="static/js/script.js"></script> 
+{% endblock scripts %}
+
+
+{% block article%}
+
+
+   <div class="conteudo">
+		<div class="calendario">
+			<header>				
+				<h2 id="mes"></h2>
+				<a class="btn-ant" id="btn_prev"><</a>
+				<a class="btn-pro" id="btn_next">></a>
+			</header>
+			<table>
+				<thead>
+					<tr>
+						<td>DOM</td>
+						<td>SEG</td>
+						<td>TER</td>
+						<td>QUA</td>
+						<td>QUI</td>
+						<td>SEX</td>
+						<td>SAB</td>
+					</tr>
+				</thead>
+				<tbody id="dias">
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<footer>
+				<h2 id="ano">2020</h2>
+			</footer>
+		</div>
+	</div>       
+{% endblock article%}
+

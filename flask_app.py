@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import psycopg2
 from datetime import datetime
-from pytz import timezone
+#from pytz import timezone
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -75,7 +75,7 @@ create_table()
 @app.route('/inicio')
 @app.route('/')
 def inicio():
-    return render_template('index.html')
+    return render_template('login.html')
 
 
 @app.route('/cadastro')
@@ -86,7 +86,7 @@ def cadastro():
 
 @app.route('/login1', methods=['GET','POST'])
 def login1():
-    return render_template('agenda.html')
+    return render_template('index.html')
 
 
 
