@@ -27,50 +27,7 @@ class Hair2you(db.Model):
 db.create_all()
 
  
-sql_create = '''CREATE TABLE hair2you (RA integer 
-            PRIMARY KEY NOT NULL, nome varchar(50) NOT NULL UNIQUE, email 
-            varchar(50) NOT NULL UNIQUE, Logradouro varchar(50) NOT NULL ,
-            numero varchar(5) NOT NULL, cep varchar(10) NOT NULL,
-            complemento varchar(20)
-            )'''
 
-
-def create_table():
-    try:
-        connection = psycopg2.connect(
-            host = "dbimpacta.postgresql.dbaas.com.br",
-            user = "dbimpacta",
-            password = "impacta#2020",
-            dbname = "dbimpacta"
-        )
-        cursor = connection.cursor()
-        cursor.execute(sql_create)
-        connection.commit()
-        cursor.close()
-        connection.close()
-        print("Tabela criada")
-    except:
-        print("Erro ao criar a Tabela")            
-
-create_table()
-
-'''def inserir_aluno(ra, nome, email, Logradouro, numero, cep, complemento):
-    	try:
-            connection = psycopg2.connect(    
-                host = "dbimpacta.postgresql.dbaas.com.br",
-                user = "dbimpacta",
-                password = "impacta#2020",
-                dbname = "dbimpacta"
-            )
-            cursor = connection.cursor()
-            sql = "INSERT INTO hair2you (ra, nome, email, Logradouro, numero, cep, complemento) VALUES (%s, %s)"
-            cursor.execute(sql,[ra, nome, email, Logradouro, numero, cep, complemento])
-            connection.commit()
-            cursor.close()
-            connection.close()
-            print("Registro Inserido com sucesso")
-        except Exception as erro:
-            print(erro)'''
 
 @app.route('/inicio')
 @app.route('/')
