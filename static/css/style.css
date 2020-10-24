@@ -7,6 +7,7 @@
             
             body {
                 font-family: 'Open Sans', sans-serif;
+                background: linear-gradient(to right, #b4918f, #FFB69D);
             }
             
             .container {
@@ -14,7 +15,6 @@
                 justify-content: center;
                 align-items: center;
                 height: 100vh;
-                background-color: #b4918f;
             }
             
             .content {
@@ -208,30 +208,92 @@
                 font-size: 14px;
             }
             
-            .entrar-js .first-content .first-column,
-            .entrar-js .first-content .second-column {
+            .sair-js .second-content .first-column {
                 z-index: -1;
             }
             
-            .entrar-js .second-content .first-column,
+            .entrar-js .first-content .first-column {
+                z-index: -1;
+            }
+            
             .entrar-js .second-content .second-column {
                 z-index: 11;
             }
             
-            .sair-js .first-content .first-column,
+            .entrar-js .second-content .first-column {
+                z-index: 13;
+            }
+            
             .sair-js .first-content .second-column {
                 z-index: 11;
             }
             
-            .sair-js .second-content .first-column,
-            .sair-js .second-content .second-column {
-                z-index: -1;
+            .sair-js .first-content .first-column {
+                z-index: 13;
             }
             
-            .entrar-js::before {
+            .sair-js .content::before {
+                animation: slideout 3s;
+                z-index: 12;
+            }
+            
+            .entrar-js .content::before {
                 left: 60%;
+                border-top-right-radius: 15px;
+                border-bottom-right-radius: 15px;
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+                animation: slidein 3s;
+                z-index: 12;
+            }
+            /*animação first column*/
+            
+            .entrar-js .first-content .second-column {
+                z-index: -1;
+                position: relative;
+                animation: deslocamento 2s;
+            }
+            
+            .sair-js .second-content .second-column {
+                z-index: -1;
+                position: relative;
+                animation: deslocamentodir 2s;
             }
             /*Animação css*/
+            
+            @keyframes deslocamento {
+                from {
+                    left: 0;
+                    z-index: 12;
+                }
+                25% {
+                    left: -80px;
+                }
+                50% {
+                    left: -100px;
+                }
+                to {
+                    left: -110px;
+                    z-index: -1;
+                }
+            }
+            
+            @keyframes deslocamentodir {
+                from {
+                    left: 0;
+                    z-index: 12;
+                }
+                25% {
+                    left: 80px;
+                }
+                50% {
+                    left: 100px;
+                }
+                to {
+                    left: 110px;
+                    z-index: -1;
+                }
+            }
             
             @keyframes slidein {
                 from {
@@ -239,19 +301,42 @@
                     width: 40%;
                 }
                 25% {
-                    left: 25%;
+                    left: 5%;
                     width: 50%;
                 }
                 50% {
-                    left: 50%;
+                    left: 25%;
                     width: 60%;
                 }
                 75% {
-                    left: 75%;
+                    left: 45%;
                     width: 50%;
                 }
                 to {
                     left: 60%;
+                    width: 40%;
+                }
+            }
+            
+            @keyframes slideout {
+                from {
+                    left: 60%;
+                    width: 40%;
+                }
+                25% {
+                    left: 45%;
+                    width: 50%;
+                }
+                50% {
+                    left: 25%;
+                    width: 60%;
+                }
+                75% {
+                    left: 5%;
+                    width: 50%;
+                }
+                to {
+                    left: 0%;
                     width: 40%;
                 }
             }
