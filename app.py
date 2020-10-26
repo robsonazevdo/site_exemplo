@@ -73,9 +73,9 @@ def obrigado():
     return render_template('obrigado.html')
     
 
-@app.route('/login')
-def login():
-    return render_template('login.html')
+@app.route('/menu')
+def menu():
+    return render_template('menu.html')
 
 
 
