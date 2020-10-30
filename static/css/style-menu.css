@@ -38,6 +38,7 @@ body {
     background-color: #222d32;
     color: #fff;
     position: absolute;
+    left: -65%;
 }
 
 .profile {
@@ -92,17 +93,53 @@ li {
     content: "\f107";
     font-weight: 900;
     font-family: "Font Awesome 5 Free";
-    padding-left: 1.5rem;
+    margin-left: 1.5rem;
+    display: inline-block;
+    transform: rotate(90deg);
+}
+
+.link-nav-arrow,
+.arrow::after {
+    transform: rotate(0);
 }
 
 .list-nav {
     padding-top: 1rem;
 }
 
-.list-nav-second {
+.icon {
+    width: 1.5rem;
+}
+
+
+/*MENU SECOND*/
+
+.hide {
     display: none;
 }
 
-.icon {
-    width: 1.5rem;
+.list-nav-second a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 0 1rem 2.7rem;
+    display: block;
+}
+
+
+/*Menu move*/
+
+.menu__move {
+    left: 0;
+}
+
+
+/*CONTENT*/
+
+.content {
+    position: relative;
+    left: 0;
+}
+
+.content-move {
+    left: 66%;
 }
