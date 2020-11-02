@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+
+body {
+    background: linear-gradient(to right, #b4918f, #FFB69D);
+    background-attachment: fixed;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+input:focus {
+    outline: none;
+}
+
+a {
+    font-size: 0.8rem;
+}
+
+a:hover {
+    color: #08558b;
+}
+
+.container {
+    background-color: #ffffff;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
