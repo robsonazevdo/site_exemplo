@@ -17,7 +17,7 @@
 <body>
     <div class="container ">
         <h2>Logar</h2>
-        <form action=" " class="form ">
+        <form action="/validar" class="form ">
             <div class="usuario ">
                 <label for="email " class=" ">E-mail</label>
                 <input type="email " id="email " name="email ">
@@ -26,12 +26,17 @@
                 <label for="password " class=" ">Senha</label>
                 <input type="password " id="password " name="senha ">
             </div>
-            <a href="# " id="forgot-pass ">Esqueceu Senha?</a>
-            <input type="checkbox " checked="checked " class="checkbox ">
-            <label class="checkbox2 ">Lembre-me</label><br><br>
+
+            <div class="forgot-pass">
+                <a href="# ">Esqueceu Senha?</a>
+            </div>
+
+            <div class="custom-control custom-checkbox ">
+                <input type="checkbox " class="custom-control-input " id="customCheck1 ">
+                <label class="custom-control-label " for="customCheck1 ">Lembre-me</label>
+            </div>
 
             <button class="btn btn-primary ">Entrar</button>
-
 
         </form>
         <div class="rede-social ">
@@ -40,9 +45,9 @@
             <a href="# " class=" "><i class="fab fa-linkedin "></i></a>
         </div>
 
-        <div class="cadastro-container">
+        <div class="cadastro-container ">
             <p class="cadastro ">Ainda não tem cadastro?</p>
-            <a href="# " class=" ">Cadastrar</a>
+            <a href="/cadastro " class=" ">Cadastrar</a>
         </div>
     </div>
 

@@ -17,7 +17,7 @@ db = SQLAlchemy(app)
 class Hair2you(db.Model):
     ra = db.Column(db.Integer, primary_key=True, nullable=True)
     nome = db.Column(db.String(50), nullable=True, unique=True)
-    email = db.Column(db.String(50), nullable=True, unique=True)
+    email = db.Column(db.String(50), nullable=True)
     logradouro = db.Column(db.String(50), nullable=True)
     numero = db.Column(db.String(5), nullable=True)
     cep = db.Column(db.String(10), nullable=True)
@@ -41,9 +41,14 @@ def cadastro():
 
 
 
-@app.route('/login1', methods=['GET','POST'])
-def login1():
+@app.route('/login', methods=['GET','POST'])
+def login():
     return render_template('index.html')
+
+
+@app.route("/validar")   
+def validar():
+    return render_template('menu.html')
 
 
 
@@ -60,7 +65,7 @@ def aluno():
         
         db.session.add(aluno)
         db.session.commit()
-        return render_template('obrigado.html') 
+        return render_template('login.html') 
     
 
 @app.route('/agenda')
