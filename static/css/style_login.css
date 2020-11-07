@@ -7,9 +7,9 @@
 }
 
 body {
-    background-image: url("/static/img/fundo.png");
+    background-image: url("/static/img/logo-hair.png");
     background-size: 100%;
-    background-attachment: fixed;
+    background-attachment: cover;
     font-family: 'Source Sans Pro', sans-serif;
 }
 

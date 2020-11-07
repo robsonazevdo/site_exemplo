@@ -1,0 +1,14 @@
+    @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        border: none;
+    }
+    
+    body {
+        background-image: url("/static/img/logo-hair.png");
+        background-size: 100%;
+        background-attachment: cover;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
