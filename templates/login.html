@@ -18,36 +18,24 @@
     <div class="container ">
         <h2>Logar</h2>
         <form action="/validar" class="form ">
-            <div class="usuario ">
-                <label for="email " class=" ">E-mail</label>
-                <input type="email " id="email " name="email ">
-            </div>
-            <div class="senha ">
-                <label for="password " class=" ">Senha</label>
-                <input type="password " id="password " name="senha ">
-            </div>
 
-            <div class="forgot-pass">
-                <a href="# ">Esqueceu Senha?</a>
-            </div>
-
-            <div class="custom-control custom-checkbox ">
-                <input type="checkbox " class="custom-control-input " id="customCheck1 ">
-                <label class="custom-control-label " for="customCheck1 ">Lembre-me</label>
-            </div>
-
-            <button class="btn btn-primary ">Entrar</button>
-
+            <label for="email " class=" ">E-mail</label>
+            <input type="email " id="email " name="email " placeholder="Dígite seu E-mail" autocomplete="off">
+            <label for="password " class=" ">Senha</label>
+            <input type="password" id="password" name="password" placeholder="Dígite sua Senha">
+            <a id="forgot-pass" href=" # ">Esqueceu Senha?</a>
+            <button type="submit" class="btn1">Entrar</button>
         </form>
         <div class="rede-social ">
-            <p class=" ">Ou entre pelas redes sociais</p>
-            <a href=" # " class=" "><i class="fab fa-facebook "></i></a>
-            <a href="# " class=" "><i class="fab fa-linkedin "></i></a>
+            <p class="">Ou entre pelas redes sociais</p>
+            <a href=" # " class=" "><i class="fab fa-facebook-f"></i></a>
+            <a href="# " class=" "><i class="fab fa-linkedin-in"></i></a>
+            <a href="# " class=" "><i class="fab fa-google-plus-g"></i></a>
         </div>
 
         <div class="cadastro-container ">
             <p class="cadastro ">Ainda não tem cadastro?</p>
-            <a href="/cadastro " class=" ">Cadastrar</a>
+            <a href="/cadastro " class="btn-cadastrar ">Cadastrar</a>
         </div>
     </div>
 

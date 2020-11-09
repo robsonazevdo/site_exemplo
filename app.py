@@ -15,13 +15,14 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 class Hair2you(db.Model):
-    ra = db.Column(db.Integer, primary_key=True, nullable=True)
-    nome = db.Column(db.String(50), nullable=True, unique=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nome = db.Column(db.String(50), nullable=True)
     email = db.Column(db.String(50), nullable=True)
     logradouro = db.Column(db.String(50), nullable=True)
     numero = db.Column(db.String(5), nullable=True)
     cep = db.Column(db.String(10), nullable=True)
     complemento = db.Column(db.String(20))
+    pwd = db.Column(db.integer,nullable=True)
 
 
 db.create_all()

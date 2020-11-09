@@ -1,14 +1,54 @@
-    @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        border: none;
-    }
-    
-    body {
-        background-image: url("/static/img/logo-hair.png");
-        background-size: 100%;
-        background-attachment: cover;
-        font-family: 'Source Sans Pro', sans-serif;
-    }
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+           border: none;
+           font-family: helvetica;
+           color: #323232;
+           border: none;
+       }
+       
+       body {
+           background-image: url("../img/logo-hair.png");
+           background-size: cover;
+           background-position-y: -150px;
+       }
+       
+       input:focus {
+           outline: none;
+       }
+       
+       .container {
+           background-color: #fff;
+           width: 400px;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 20px 30px;
+           margin-top: 10vh;
+           border-radius: 10px;
+           opacity: .8;
+           text-align: center;
+       }
+       
+       form {
+           margin-top: 20px;
+           margin-bottom: 30px;
+       }
+       
+       label,
+       input {
+           display: block;
+           width: 100%;
+           text-align: left;
+       }
+       
+       input {
+           border-bottom: 2px solid #323232;
+           padding: 5px;
+           font-size: 1rem;
+           margin-bottom: 20px;
+       }
+       
+       input:focus {
+           border-bottom: 2px solid #08558b;
+       }

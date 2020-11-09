@@ -16,40 +16,40 @@
 
 <body>
     <div class="container" id="logo">
-        <div class="row">
 
 
-            <div class="col-12 col-md-6 coluna">
-                <form action="/aluno" method="POST" class="text-center" class="was-validated">
-                    <div class="form-group">
-                        <h1 class="h3 text-white">Cadastro</h1>
-                        <label for="id_ra" class="sr-only">RA</label>
-                        <input class="form-control m-3" type="text" id="id_ra" placeholder="RA*" required autofocus name="ra">
 
-                        <label for="id_nome" class="sr-only">Nome</label>
-                        <input class="form-control m-3" type="text" id="id_nome" placeholder="Nome*" required autofocus name="nome">
+        <form action="/aluno" method="POST" class="text-center" class="was-validated">
 
-                        <label for="id_email" class="sr-only">Email</label>
-                        <input class="form-control m-3" type="text" id="id_email" placeholder="Email*" required autofocus name="email">
+            <h1 class="h3 text-white">Cadastro</h1>
 
-                        <label for="id_endereco" class="sr-only">Endereço</label>
-                        <input class="form-control m-3" type="text" id="id_endereco" placeholder="Endereço*" required autofocus name="endereco">
+            <label for="id_nome" class="sr-only">Nome</label>
+            <input type="text" id="id_nome" placeholder="Nome*" autocomplete="off" required autofocus name="nome">
 
-                        <label for="id_numero" class="sr-only">Número</label>
-                        <input class="form-control m-3" type="text" id="id_numero" placeholder="Numero*" required autofocus name="numero">
+            <label for="id_email" class="sr-only">Email</label>
+            <input type="text" id="id_email" placeholder="Email*" autocomplete="off" required autofocus name="email">
 
-                        <label for="id_cep" class="sr-only">CEP</label>
-                        <input class="form-control m-3" type="text" id="id_cep" placeholder="CEP*" required autofocus name="cep">
+            <label for="id_endereco" class="sr-only">Endereço</label>
+            <input type="text" id="id_endereco" placeholder="Endereço*" autocomplete="off" required autofocus name="endereco">
 
-                        <label for="id_cep" class="sr-only">Complemento</label>
-                        <input class="form-control m-3" type="text" id="id_complemento" placeholder="Complemento*" required autofocus name="complemento">
+            <label for="id_numero" class="sr-only">Número</label>
+            <input type="text" id="id_numero" placeholder="Numero*" autocomplete="off" required autofocus name="numero">
+
+            <label for="id_cep" class="sr-only">CEP</label>
+            <input type="text" id="id_cep" placeholder="CEP*" autocomplete="off" required autofocus name="cep">
+
+            <label for="id_cep" class="sr-only">Complemento</label>
+            <input type="text" id="id_complemento" placeholder="Complemento*" autocomplete="off" required autofocus name="complemento">
+
+            <label for="password " class="sr-only">Senha</label>
+            <input type="password" id="password" name="password" placeholder="Crie uma Senha*">
 
 
-                        <button type="submit" name="" class="btn btn-primary">Enviar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+            <button type="submit" name="" class="btn btn-primary">Enviar</button>
+
+        </form>
+
+
     </div>
 
 </body>
