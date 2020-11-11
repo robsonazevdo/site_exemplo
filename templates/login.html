@@ -15,33 +15,47 @@
 </head>
 
 <body>
+{% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    <ul class=flashes>
+                            {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                    {% endif %}
+                {% endwith %}
+
     <div class="container ">
         <h2 class="text-white">Logar</h2>
-        <form action="" class="form ">
-            {{ form.csrf_token}}
-            <label for="email " class=" ">E-mail</label> {{ form.username(placeholder="Digite seu E-mail" ,autocomplete="off")}} {% if form.errors.username %}
+        
+        <form action="" class="form" method="POST">
+            {{ formu.csrf_token }}
+            <label for="email " class=" ">E-mail</label> {{ formu.email(placeholder="Digite seu E-mail" ,autocomplete="off")}} {% if formu.errors.email %}
             <div class="alert alert-danger" role="alert">
-                <ul> {% for i in form.errors.username %}
+                <ul> {% for i in formu.errors.email %}
                     <li>{{ i }}</li>
                     {% endfor %}
                 </ul>
             </div>
             {% endif %}
 
-            <label for="password " class=" ">Senha</label> {{ form.password(placeholder="Digite sua Senha ")}} {% if form.errors.password %}
+            <label for="password " class=" ">Senha</label> {{ formu.senha(placeholder="Digite sua Senha ")}} {% if formu.errors.password %}
             <div class="alert alert-danger" role="alert">
-                <ul> {% for i in form.errors.password %}
+                <ul> {% for i in formu.errors.password %}
                     <li>{{ i }}</li>
                     {% endfor %}
                 </ul>
             </div>
             {% endif %}
-
 
 
             <a id="forgot-pass " href=" # ">Esqueceu Senha?</a>
             <button type="submit " class="btn1 ">Entrar</button>
         </form>
+        
+                
         <div class="rede-social ">
             <p class=" ">Ou entre pelas redes sociais</p>
             <a href=" # " class=" "><i class="fab fa-facebook-f "></i></a>

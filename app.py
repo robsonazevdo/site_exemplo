@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request, jsonify,  redirect, url_for, flash
 
 from flask_sqlalchemy import SQLAlchemy
+from flask_script import Manager
+from flask_migrate import Migrate, MigrateCommand
  
 from flask_login import LoginManager
-from flask_login import login_user
+from flask_login import login_user, logout_user,login_required
 
 from forms import LoginForm
 
@@ -19,19 +21,19 @@ app = Flask(__name__)
 # configurar o banco de dados
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Impacta.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'your secret key'
 db = SQLAlchemy(app)
-
-
 
 
 lm = LoginManager()
 lm.init_app(app)
 
+@lm.user_loader
+def load_user(id):
+    return Hair2you.query.filter_by(id=id).first()
+
 class Hair2you(db.Model):
-    __tablename__ = "users"
-    
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nome = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(50), nullable=False, unique=True)
@@ -41,9 +43,20 @@ class Hair2you(db.Model):
     complemento = db.Column(db.String(20))
     senha = db.Column(db.String(128), nullable=False)
 
+    def __init__(self, nome, email, logradouro, numero, cep, complemento, senha ):
+           
+        self.nome = nome
+        self.email = email
+        self.logradouro = logradouro
+        self.numero = numero
+        self.cep = cep
+        self.complemento = complemento
+        self.senha = senha
+
     @lm.user_loader
-    def load_user(user_id):
-        return Hair2you.get(user_id)
+    def load_user(id):
+        return Hair2you.query.filter_by(id=id).first()
+
 
     @property
     def is_authenticated(self):
@@ -60,36 +73,28 @@ class Hair2you(db.Model):
     def get_id(self):
         return str(self.id)
 
-    def __init__(self,name, email, senha, logradouro, numero, cep, complemento ):
-       
-        self.name = name
-        self.email = email
-        self.senha = senha
-        self.logradouro = logradouro
-        self.numero = numero
-        self.cep = cep
-        self.complemento = complemento
 
+    def __repr__(self):
+        return "<Hair2you %r>" % self.nome
 
     
 
-
-
-@app.route('/inicio', methods=['GET', 'POST'])
-@app.route('/')
+@app.route('/inicio')
+@app.route('/', methods=['GET', 'POST'])
 def inicio():
-   form = LoginForm()
-   
-   if form.validate_on_submit(): 
-         
-       u = Hair2you.query.filter_by(username=form.username.data).fist()
-       if u and u.senha == form.password.data:
+   formu = LoginForm()
+   if formu.validate_on_submit():
+      
+       u = Hair2you.query.filter_by(email=formu.email.data).first()
+    
+       if u and u.senha == formu.senha.data:
            login_user(u)
-           print('logado')
+           return render_template("logado.html", aluno=Hair2you.query.all())
        else:
-            print("nao deu")
-         
-   return render_template('login.html', form=form)
+           flash("login inválido")
+
+      
+   return render_template('login.html', formu=formu)
 
 
 @app.route('/cadastro')
@@ -98,19 +103,17 @@ def cadastro():
 
 
 
-
-@app.route('/aluno', methods=['GET', 'POST'])
+@app.route('/users', methods=['GET', 'POST'])
 def aluno():
     if request.method == "POST":
-        aluno = Hair2you(senha = request.form['senha'],
-                        nome = request.form['nome'],
+        aluno = Hair2you(nome = request.form['nome'],
                         email = request.form['email'], 
                         logradouro = request.form['endereco'], 
                         numero = request.form['numero'],
                         cep = request.form['cep'],
-                        complemento = request.form['complemento'])
+                        complemento = request.form['complemento'], 
+                        senha = request.form['senha'])
         
-
         db.session.add(aluno)
         db.session.commit()
         return render_template('login.html') 
@@ -119,15 +122,20 @@ def aluno():
 @app.route("/validar")   
 def validar():
     
-    
     return render_template('menu.html')
 
-    
+
+@app.route("/logout")
+@login_required
+def logout():
+    flash('logout')
+    logout_user()
+    return redirect(url_for('inicio'))
 
 
-@app.route('/agenda')
-def agenda():
-    return render_template('agenda.html')       
+@app.route('/logado')
+def logado():
+    return render_template('logado.html')       
     
 
 @app.route('/obrigado')
