@@ -28,7 +28,7 @@ a:hover {
 }
 
 .container {
-    background-color: #fff;
+    background-color: #323232;
     width: 400px;
     margin-left: auto;
     margin-right: auto;
@@ -40,8 +40,8 @@ a:hover {
 }
 
 form {
-    margin-top: 200px;
-    margin-bottom: 300px;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 label,
@@ -56,10 +56,12 @@ label {
 }
 
 input {
-    border-bottom: 2px solid #323232;
+    border-bottom: 2px solid #ffffff;
     padding: 5px;
     font-size: 1rem;
     margin-bottom: 20px;
+    background-color: #323232;
+    color: #fff;
 }
 
 input:focus {

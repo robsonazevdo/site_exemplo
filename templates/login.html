@@ -11,26 +11,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" href="" class="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>login</title>
-    <link rel="stylesheet" type="text/css" href=" /static/css/style_login.css ">
+    <link rel="stylesheet" type="text/css" href="/static/css/style_login.css ">
 </head>
 
 <body>
     <div class="container ">
-        <h2>Logar</h2>
-        <form action="/validar" class="form ">
+        <h2 class="text-white">Logar</h2>
+        <form action="" class="form ">
+            {{ form.csrf_token}}
+            <label for="email " class=" ">E-mail</label> {{ form.username(placeholder="Digite seu E-mail" ,autocomplete="off")}} {% if form.errors.username %}
+            <div class="alert alert-danger" role="alert">
+                <ul> {% for i in form.errors.username %}
+                    <li>{{ i }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
 
-            <label for="email " class=" ">E-mail</label>
-            <input type="email " id="email " name="email " placeholder="Dígite seu E-mail" autocomplete="off">
-            <label for="password " class=" ">Senha</label>
-            <input type="password" id="password" name="password" placeholder="Dígite sua Senha">
-            <a id="forgot-pass" href=" # ">Esqueceu Senha?</a>
-            <button type="submit" class="btn1">Entrar</button>
+            <label for="password " class=" ">Senha</label> {{ form.password(placeholder="Digite sua Senha ")}} {% if form.errors.password %}
+            <div class="alert alert-danger" role="alert">
+                <ul> {% for i in form.errors.password %}
+                    <li>{{ i }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+
+
+            <a id="forgot-pass " href=" # ">Esqueceu Senha?</a>
+            <button type="submit " class="btn1 ">Entrar</button>
         </form>
         <div class="rede-social ">
-            <p class="">Ou entre pelas redes sociais</p>
-            <a href=" # " class=" "><i class="fab fa-facebook-f"></i></a>
-            <a href="# " class=" "><i class="fab fa-linkedin-in"></i></a>
-            <a href="# " class=" "><i class="fab fa-google-plus-g"></i></a>
+            <p class=" ">Ou entre pelas redes sociais</p>
+            <a href=" # " class=" "><i class="fab fa-facebook-f "></i></a>
+            <a href="# " class=" "><i class="fab fa-linkedin-in "></i></a>
+            <a href="# " class=" "><i class="fab fa-google-plus-g "></i></a>
         </div>
 
         <div class="cadastro-container ">
