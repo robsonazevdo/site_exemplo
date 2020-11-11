@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify,  redirect, url_for, 
 
 from flask_sqlalchemy import SQLAlchemy
 from flask_script import Manager
-from flask_migrate import Migrate, MigrateCommand
+#from flask_migrate import Migrate, MigrateCommand
  
 from flask_login import LoginManager
 from flask_login import login_user, logout_user,login_required
@@ -75,7 +75,7 @@ class Hair2you(db.Model):
 
 
     def __repr__(self):
-        return "<Hair2you %r>" % self.nome
+        return  self.nome
 
     
 

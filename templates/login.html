@@ -15,21 +15,19 @@
 </head>
 
 <body>
-{% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                <div class="alert alert-danger" role="alert">
-                    <ul class=flashes>
-                            {% for message in messages %}
-                            <li>{{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                    {% endif %}
-                {% endwith %}
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <div class="alert alert-dark " role="alert">
+        <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %} {% endwith %}
 
     <div class="container ">
         <h2 class="text-white">Logar</h2>
-        
+
         <form action="" class="form" method="POST">
             {{ formu.csrf_token }}
             <label for="email " class=" ">E-mail</label> {{ formu.email(placeholder="Digite seu E-mail" ,autocomplete="off")}} {% if formu.errors.email %}
@@ -54,8 +52,8 @@
             <a id="forgot-pass " href=" # ">Esqueceu Senha?</a>
             <button type="submit " class="btn1 ">Entrar</button>
         </form>
-        
-                
+
+
         <div class="rede-social ">
             <p class=" ">Ou entre pelas redes sociais</p>
             <a href=" # " class=" "><i class="fab fa-facebook-f "></i></a>
