@@ -29,19 +29,19 @@
         <h2 class="text-white">Logar</h2>
 
         <form action="" class="form" method="POST">
-            {{ formu.csrf_token }}
-            <label for="email " class=" ">E-mail</label> {{ formu.email(placeholder="Digite seu E-mail" ,autocomplete="off")}} {% if formu.errors.email %}
+            {{ formi.csrf_token }}
+            <label for="email " class=" ">E-mail</label> {{ formi.email(placeholder="Digite seu E-mail" ,autocomplete="off")}} {% if formi.errors.email %}
             <div class="alert alert-danger" role="alert">
-                <ul> {% for i in formu.errors.email %}
+                <ul> {% for i in formi.errors.email %}
                     <li>{{ i }}</li>
                     {% endfor %}
                 </ul>
             </div>
             {% endif %}
 
-            <label for="password " class=" ">Senha</label> {{ formu.senha(placeholder="Digite sua Senha ")}} {% if formu.errors.password %}
+            <label for="password " class=" ">Senha</label> {{ formi.senha(placeholder="Digite sua Senha ")}} {% if formi.errors.password %}
             <div class="alert alert-danger" role="alert">
-                <ul> {% for i in formu.errors.password %}
+                <ul> {% for i in formi.errors.password %}
                     <li>{{ i }}</li>
                     {% endfor %}
                 </ul>

@@ -82,19 +82,19 @@ class Hair2you(db.Model):
 @app.route('/inicio')
 @app.route('/', methods=['GET', 'POST'])
 def inicio():
-   formu = LoginForm()
-   if formu.validate_on_submit():
+   formi = LoginForm()
+   if formi.validate_on_submit():
       
-       u = Hair2you.query.filter_by(email=formu.email.data).first()
+       u = Hair2you.query.filter_by(email=formi.email.data).first()
     
-       if u and u.senha == formu.senha.data:
+       if u and u.senha == formi.senha.data:
            login_user(u)
            return render_template("logado.html", aluno=Hair2you.query.all())
        else:
            flash("login inválido")
 
       
-   return render_template('login.html', formu=formu)
+   return render_template('login.html', formi=formi)
 
 
 @app.route('/cadastro')
@@ -116,7 +116,7 @@ def aluno():
         
         db.session.add(aluno)
         db.session.commit()
-        return render_template('login.html') 
+        return redirect(url_for('inicio')) 
 
 
 @app.route("/validar")   
