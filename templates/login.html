@@ -26,11 +26,13 @@
     {% endif %} {% endwith %}
 
     <div class="container ">
-        <h2 class="text-white">Logar</h2>
 
-        <form action="" class="form" method="POST">
+        <img class="logo" src=" /static/img/Logo-branco.png " alt=" ">
+
+
+        <form action=" " class="form" method="POST">
             {{ formi.csrf_token }}
-            <label for="email " class=" ">E-mail</label> {{ formi.email(placeholder="Digite seu E-mail" ,autocomplete="off")}} {% if formi.errors.email %}
+            <label for="email" class=" ">E-mail</label> {{ formi.email(placeholder="Digite seu E-mail" ,autocomplete="off")}} {% if formi.errors.email %}
             <div class="alert alert-danger" role="alert">
                 <ul> {% for i in formi.errors.email %}
                     <li>{{ i }}</li>
@@ -39,7 +41,7 @@
             </div>
             {% endif %}
 
-            <label for="password " class=" ">Senha</label> {{ formi.senha(placeholder="Digite sua Senha ")}} {% if formi.errors.password %}
+            <label for="password" class=" ">Senha</label> {{ formi.senha(placeholder="Digite sua Senha")}} {% if formi.errors.password %}
             <div class="alert alert-danger" role="alert">
                 <ul> {% for i in formi.errors.password %}
                     <li>{{ i }}</li>
@@ -62,8 +64,8 @@
         </div>
 
         <div class="cadastro-container ">
-            <p class="cadastro ">Ainda não tem cadastro?</p>
-            <a href="/cadastro " class="btn-cadastrar ">Cadastrar</a>
+            <p class="cadastro">Ainda não tem cadastro?</p>
+            <a href="/cadastro" class="btn-cadastrar ">Cadastrar</a>
         </div>
     </div>
 

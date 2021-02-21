@@ -31,7 +31,7 @@ body {
 .content::before {
     content: "";
     position: absolute;
-    background-color: rgb(22, 65, 22);
+    background-color: #b4918f;
     width: 40%;
     height: 100%;
     border-top-left-radius: 15px;
@@ -50,7 +50,7 @@ body {
 }
 
 .title-second {
-    color: rgb(22, 65, 22);
+    color: #b4918f;
 }
 
 .descricao {
@@ -93,7 +93,7 @@ body {
 }
 
 .item-social-midia {
-    border: 1px solid rgb(22, 65, 22);
+    border: 1px solid #b4918f;
     border-radius: 50%;
     width: 35px;
     height: 35px;
@@ -111,9 +111,9 @@ body {
 }
 
 .link-midia-social:hover .item-social-midia {
-    background-color: rgb(22, 65, 22);
+    background-color: #b4918f;
     color: #fff;
-    border-color: rgb(22, 65, 22);
+    border-color: #b4918f;
 }
 
 .midia-social {
@@ -171,15 +171,15 @@ input:-webkit-autofill {
 }
 
 .btn-second {
-    background-color: rgb(22, 65, 22);
-    border: 1px solid rgb(22, 65, 22);
+    background-color: #b4918f;
+    border: 1px solid #b4918f;
     transition: background-color .5s;
 }
 
 .btn-second:hover {
     background-color: #fff;
-    border: 1px solid rgb(22, 65, 22);
-    color: rgb(22, 65, 22);
+    border: 1px solid #b4918f;
+    color: #b4918f;
 }
 
 .btn-primary:hover {
